@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="Imagenes/Gymrat.ico" />
+    <link type="text/css" rel="stylesheet" href="css/estiloPrueba.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suplementos de Gimnasio</title>
+
+    
+</head>
+<body>
+    <header>
+        <h1>💪 SUPLEMENTOS GYM PRO</h1>
+    </header>
+    
+    <main>
+        <section class="productos">
+            <!-- Producto 1 -->
+            <article class="producto">
+                <img src="Imagenes/Proteina.jpg" alt="Proteína Whey">
+                <div class="info">
+                    <h2>Proteína Whey</h2>
+                    <p>Proteína de alta calidad para recuperación muscular</p>
+                    <table class="inputs">
+                        <tr>
+                            <td><label for="precio1">Precio ($)</label></td>
+                            <td><input type="number" id="precio1" name="precio1" placeholder="$30.000" min="0" step="0.01"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="cantidad1">Cantidad (Gramos por porción)</label></td>
+                            <td><input type="number" id="cantidad1" name="cantidad1" placeholder="1 scoop de proteina" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="stock1">Stock disponible</label></td>
+                            <td><input type="number" id="stock1" name="stock1" placeholder="100" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button>Agregar al carrito</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="producto">
+                <img src="Imagenes/Creatina.jpg" alt="Creatina">
+                <div class="info">
+                    <h2>Creatina Monohidrato</h2>
+                    <p>Aumenta fuerza y resistencia en entrenamientos intensos</p>
+                    <table class="inputs">
+                        <tr>
+                            <td><label for="precio2">Precio ($)</label></td>
+                            <td><input type="number" id="precio2" name="precio2" placeholder="$40.000" min="0" step="0.01"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dosis2">Dosis (Gramos por porción acorde del peso corporal)</label></td>
+                            <td><input type="number" id="dosis2" name="dosis2" placeholder="1 gramo por 10 kg de peso corporal" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="stock2">Stock disponible</label></td>
+                            <td><input type="number" id="stock2" name="stock2" placeholder="150" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button>Agregar al carrito</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="producto">
+                <img src="Imagenes/Bcaa.jpg" alt="BCAA">
+                <div class="info">
+                    <h2>BCAA Complex</h2>
+                    <p>Aminoácidos ramificados para mayor rendimiento</p>
+                    <table class="inputs">
+                        <tr>
+                            <td><label for="precio3">Precio ($)</label></td>
+                            <td><input type="number" id="precio3" name="precio3" placeholder="$15.000" min="0" step="0.01"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="proporcion3">Proporción (1:1:1)</label></td>
+                            <td><input type="number" id="proporcion3" name="proporcion3" placeholder="250" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="stock3">Stock disponible</label></td>
+                            <td><input type="number" id="stock3" name="stock3" placeholder="80" min="0"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button>Agregar al carrito</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <section class="comparacion">
+            <h2>Comparación de Suplementos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Beneficio Principal</th>
+                        <th>Precio Aproximado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Proteína Whey</td>
+                        <td>Recuperación muscular</td>
+                        <td>$30.000</td>
+                    </tr>
+                    <tr>
+                        <td>Creatina Monohidrato</td>
+                        <td>Fuerza y resistencia</td>
+                        <td>$40.000</td>
+                    </tr>
+                    <tr>
+                        <td>BCAA Complex</td>
+                        <td>Rendimiento y recuperación</td>
+                        <td>$15.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <form action="#" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required minlength="2"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required minlength="10"></textarea><br><br>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-content">
+            <section class="footer-section">
+                <h3>💪 SOBRE NOSOTROS</h3>
+                <p>Somos tu tienda en línea especializada en suplementos de alta calidad para gimnasio, nutrición deportiva y bienestar.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="YouTube">▶</a>
+                </div>
+            </section>
+
+            <nav class="footer-section">
+                <h3>ENLACES RÁPIDOS</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Promociones</a></li>
+                    <li><a href="#">Mi Cuenta</a></li>
+                    <li><a href="#">Carrito de Compras</a></li>
+                </ul>
+            </nav>
+
+            <section class="footer-section">
+                <h3>INFORMACIÓN</h3>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-section">
+                <h3>CONTACTO</h3>
+                <ul>
+                    <li>📧 Email: info@supplementosgympro.com</li>
+                    <li>📞 Teléfono: +57 (1) 234-5678</li>
+                    <li>📍 Dirección: Calle Principal 123, Bogotá, Colombia</li>
+                    <li>🕐 Lunes a Viernes: 8:00 - 18:00</li>
+                    <li>🕐 Sábado: 9:00 - 15:00</li>
+                </ul>
+            </section>
+        </section>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Suplementos Gym Pro. Todos los derechos reservados. | Diseñado con ❤️ para tu salud y rendimiento máximo.</p>
+        </div>
+    </footer>
+</body>
+</html>
