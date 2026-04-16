@@ -1,18 +1,19 @@
-/* Reset */
+/* Reset: eliminar márgenes/paddings por defecto y usar box-sizing para
+   que el padding/border no cambien el tamaño total de los elementos. */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
+/* Body: estilos globales de tipografía y colores base. */
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a;
     color: #fff;
 }
 
-/* Header */
+/* Header: barra superior con gradiente y título centrado. */
 header {
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     padding: 20px;
@@ -23,7 +24,11 @@ header h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Main Content */
+/* Main Content: contenedor principal y estilos para cada producto.
+   - `.container` puede usarse para centrar contenido. (No está en el HTML actual,
+     pero se deja preparado.)
+   - `.producto` usa grid para mostrar imagen + datos lado a lado.
+   - `.info` organiza título, descripción y controles del producto. */
 .container {
     max-width: 1200px;
     margin: 30px auto;
@@ -62,7 +67,9 @@ header h1 {
     line-height: 1.6;
 }
 
-/* Forms and Inputs */
+/* Forms and Inputs: estilos para inputs y textarea.
+   - `.inputs` organiza campos verticalmente.
+   - Los :focus ofrecen feedback visual para accesibilidad. */
 .inputs {
     display: flex;
     flex-direction: column;
@@ -90,7 +97,7 @@ textarea {
     min-height: 80px;
 }
 
-/* Buttons */
+/* Buttons: estilos principales y efecto hover para indicar interactividad. */
 button {
     background-color: #ff6b35;
     color: #fff;
@@ -107,7 +114,8 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Tables */
+/* Tables: diseño para tablas comparativas y de inputs. Se cuida contraste y
+   filas alternadas para legibilidad. */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -134,7 +142,7 @@ tr:hover {
     background-color: #444;
 }
 
-/* Sections */
+/* Sections: espaciado y títulos para las secciones comparativa y contacto. */
 .comparacion {
     margin: 40px 0;
 }
@@ -156,7 +164,9 @@ tr:hover {
     margin: 0 auto;
 }
 
-/* Footer */
+/* Footer: fondo con gradiente, disposición de columnas responsivas y enlaces.
+   - `.footer-content` usa grid para columnas que se adaptan al ancho.
+   - `.social-links` diseña los iconos circulares de redes sociales. */
 footer {
     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
     color: #fff;
@@ -222,7 +232,9 @@ footer {
     transform: scale(1.1);
 }
 
-/* Media Queries */
+/* Media Queries: ajustes para pantallas pequeñas.
+   - Convertir la columna de producto en una sola columna.
+   - Hacer el footer en una sola columna para mejor lectura en móvil. */
 @media (max-width: 768px) {
     .producto {
         grid-template-columns: 1fr;
