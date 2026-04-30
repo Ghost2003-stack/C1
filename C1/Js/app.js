@@ -1,9 +1,9 @@
 // Constantes para IDs de elementos (centraliza cambios)
 const FORM_ID = "registroForm";
 const NOMBRE_ID = "nombre";
-const DIRECCION_ID = "direccion";
 const EMAIL_ID = "email";
 const PASSWORD_ID = "password";
+const CONFIRM_PASSWORD_ID = "confirmPassword";
 const MENSAJE_ID = "mensaje";
 const BACKGROUND_IMAGE_ID = "backgroundImage";
 const SET_BACKGROUND_BUTTON_ID = "setBackground";
@@ -13,15 +13,18 @@ function validarCamposRequeridos(campos) {
     for (const campo of campos) {
         const elemento = document.getElementById(campo.id);
         if (!elemento) {
-            return `Error interno: Campo ${campo.nombre} no encontrado.`;
+            return { mensaje: `Error interno: Campo ${campo.nombre} no encontrado.`, elemento: null };
         }
+        elemento.removeAttribute('aria-invalid');
         const valor = elemento.value.trim();
         if (valor === "") {
-            return `El campo ${campo.nombre} es obligatorio.`;
+            elemento.setAttribute('aria-invalid', 'true');
+            return { mensaje: `El campo ${campo.nombre} es obligatorio.`, elemento };
         }
         // Validaciones específicas de formato y seguridad
         if (campo.validar && !campo.validar(valor)) {
-            return campo.mensajeError;
+            elemento.setAttribute('aria-invalid', 'true');
+            return { mensaje: campo.mensajeError, elemento };
         }
     }
     return null; // Sin errores
@@ -40,16 +43,16 @@ function esNombreValido(nombre) {
     return regex.test(nombre) && nombre.length >= 2 && nombre.length <= 50; // Longitud razonable
 }
 
-// Función para validar dirección (letras, números y caracteres básicos de dirección)
-function esDireccionValida(direccion) {
-    const regex = /^[a-zA-Z0-9À-ÿ\s.,#-]{5,100}$/;
-    return regex.test(direccion);
-}
-
 // Función para validar contraseña (fuerte: min 8 chars, mayúscula, minúscula, número, especial)
 function esPasswordValido(password) {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return regex.test(password) && password.length <= 128; // Límite para prevenir ataques
+}
+
+// Función para validar contraseña (fuerte: min 8 chars, mayúscula, minúscula, número, especial)
+function esPasswordValido(confirmPassword) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(confirmPassword) && confirmPassword.length <= 128; // Límite para prevenir ataques
 }
 
 // Función para validar URL de imagen (segura y correcta)
@@ -81,10 +84,10 @@ function manejarEnvioFormulario(event) {
             mensajeError: "El nombre debe contener solo letras, espacios o apóstrofes, y tener entre 2 y 50 caracteres." 
         },
         { 
-            id: DIRECCION_ID,
-            nombre: "Dirección",
-            validar: esDireccionValida,
-            mensajeError: "La dirección debe contener entre 5 y 100 caracteres válidos (letras, números, ., #, -)."
+            id: CONFIRM_PASSWORD_ID,
+            nombre: "Confirmar contraseña",
+            validar: esPasswordValido,
+            mensajeError: "Las contraseñas no coinciden."
         },
         { 
             id: EMAIL_ID, 
@@ -104,7 +107,10 @@ function manejarEnvioFormulario(event) {
     // Validar campos requeridos
     const errorRequerido = validarCamposRequeridos(camposRequeridos);
     if (errorRequerido) {
-        mostrarMensaje(errorRequerido);
+        mostrarMensaje(errorRequerido.mensaje);
+        if (errorRequerido.elemento) {
+            errorRequerido.elemento.focus();
+        }
         return;
     }
 

@@ -6,11 +6,42 @@
     box-sizing: border-box;
 }
 
-/* Body: estilos globales de tipografía y colores base. */
+:focus-visible {
+    outline: 3px solid #ffd087;
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #ff6b35;
+    color: #fff;
+    padding: 10px 18px;
+    z-index: 1000;
+    transition: top 0.25s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover,
+ a:focus-visible {
+    color: #ffd087;
+    text-decoration: underline;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
+    background-color: #111;
     color: #fff;
+    line-height: 1.6;
 }
 
 /* Header: barra superior con gradiente y título centrado. */
@@ -22,6 +53,30 @@ header {
 header h1 {
     font-size: 2.5em;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main-nav {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-nav a {
+    color: #fff;
+    font-weight: 700;
 }
 
 /* Main Content: contenedor principal y estilos para cada producto.
@@ -99,7 +154,7 @@ textarea {
 
 /* Buttons: estilos principales y efecto hover para indicar interactividad. */
 button {
-    background-color: #ff6b35;
+    background-color: #d35400;
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -109,8 +164,12 @@ button {
     cursor: pointer;
     transition: 0.3s;
 }
+button:focus-visible {
+    outline: 3px solid #ffd087;
+    outline-offset: 3px;
+}
 button:hover {
-    background-color: #f7931e;
+    background-color: #ff7f2a;
     transform: scale(1.05);
 }
 
